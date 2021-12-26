@@ -69,7 +69,7 @@ class CpStockChart:
         
         if ohlcv_only:
             self.objStockChart.SetInputValue(5, [0, 2, 3, 4, 5, 8]) # 요청항목 - 날짜, 시가, 고가, 저가, 종가, 거래량
-            rq_column = ('date', 'open', 'high', 'low', 'close', 'volume')
+            rq_columns = ('date', 'open', 'high', 'low', 'close', 'volume')
         else:
             # 요청항목
             # - 날짜, 시가, 고가, 저가, 종가, 거래량, 
@@ -143,15 +143,15 @@ class CpStockChart:
         
         if ohlcv_only:
             self.objStockChart.SetInputValue(
-                5, [0, 1, 2, 3, 4, 5, 8]) # 요청항목 - 날짜, 시가, 고가, 저가, 종가, 거래량
-            rq_column = ('date', 'open', 'high', 'low', 'close', 'volume')
+                5, [0, 1, 2, 3, 4, 5, 8]) # 요청항목 - 날짜, 시간, 시가, 고가, 저가, 종가, 거래량
+            rq_columns = ('date', 'time', 'open', 'high', 'low', 'close', 'volume')
         else:
             # 요청항목
-            # - 날짜, 시가, 고가, 저가, 종가, 거래량, 
+            # - 날짜, 시간, 시가, 고가, 저가, 종가, 거래량, 
             # - 상장주식수, 외국인주문한도수량, 외국인현보유수량, 외국인현보유비율, 기관순매수, 기관누적순매수
-            self.objStockChart.SetInputValue(5, [0, 2, 3, 4, 5, 8, 12, 14, 16, 17, 20, 21])
+            self.objStockChart.SetInputValue(5, [0, 1, 2, 3, 4, 5, 8, 12, 14, 16, 17, 20, 21])
             rq_columns = (
-                'date', 'open', 'high', 'low', 'close', 'volume', 
+                'date', 'time', 'open', 'high', 'low', 'close', 'volume', 
                 'num_listed_shares', 'foreigner_order_limit', 
                 'foreigner_current_holdings', 'foreigner_current_holding_ratio', 
                 'institutional_net_buying', 'institutional_cumulative_net_buying', 
@@ -222,7 +222,7 @@ class CpCodeMgr:
         :return: market 에 해당하는 코드 list
         """
         
-        return self.objCodeMgr.GetStockListByMarket(code)
+        return self.objCodeMgr.GetStockListByMarket(market)
     
     def get_section_code(self, code):
         """부구분코드를 반환하는 메소드"""

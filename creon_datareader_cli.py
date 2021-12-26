@@ -117,7 +117,7 @@ class CreonDatareaderCLI:
         elif tick_unit == 'day':
             count = 10000 # 10000 개면 현재부터 1980년 까지ㅣ의 데이터에 해당. 충분.
             tick_range = 1
-        elif tick_unit = 'week':
+        elif tick_unit == 'week':
             count = 2000
         elif tick_unit == 'month':
             count = 500

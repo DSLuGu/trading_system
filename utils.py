@@ -34,6 +34,9 @@ def available_latest_date():
     if is_market_opne():
         return None
     
+    # 장 중이 아닌 경우에 대해
+    latest_date = now.replace(hour=15, minute=30)
+    
     # 주말인 경우 (이외의 공휴일 체크 구현 필요)
     if now.weekday() >= 5:
         latest_date = latest_date - timedelta(days=2)
